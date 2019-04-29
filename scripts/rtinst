@@ -549,6 +549,12 @@ if ! [ $osname = "Raspbian" ] && [ $(dpkg-query -W -f='${Status}' "ffmpeg" 2>/de
   fi
 fi
 
+#install rclone
+echo "Installing rclone"
+apt-get install curl 2>&1
+curl https://rclone.org/install.sh | sudo bash 2>&1  && echo "rclone installed"
+rclone config file >> $logfile 2>&1
+
 echo "Completed installation of required packages        "
 
 #add user to sudo group if not already
