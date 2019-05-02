@@ -67,4 +67,6 @@ pieces.memory.max.set = 3500M
 ### The following line initialises rutorrent plugins without needing to open the web interface
 execute = {sh,-c,/usr/bin/php /var/www/rutorrent/php/initplugins.php <user name> &}
 
+method.set_key = event.download.finished,notify_me,"execute=~/rtup.sh,$d.name=,$d.size_bytes=,$session.name="
+
 #EOF
